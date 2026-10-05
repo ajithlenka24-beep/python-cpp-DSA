@@ -18,7 +18,7 @@ emp_2.pay = 600000
 
 print(emp_1.email)
 print(emp_2.email)"""
-class employee:
+"""class employee:
     def __init__(self, first, last, pay):
         self.first = first
         self.last = last
@@ -122,3 +122,105 @@ print(rabbit1.hunt())
 print(fox1.run())
 print(fox1.hunt())
 print(rabbit1.eat())  #multi level inheritance used here.
+#ABSTRACT CLASS : a class that cannot be instantiated on its own; meant to be subclass.
+#They can contain abstract methods, which are methods that are declared but contain no implementation.
+#Abstract classes are used to define a common interface for a group of related classes.
+#uses: 1. prevents instantiation of the class itself. 2.requires children to use inherited abstract methods.
+from abc import ABC, abstractmethod
+class vehicle(ABC):
+    @abstractmethod
+    def go(self):
+        pass
+    @abstractmethod
+    def stop(self):
+        pass
+class CAR(vehicle):
+    def go(self):
+        print("drive the car")
+    def stop(self):
+        print("stop driving the car")
+car = CAR()
+car.go()
+car.stop()      
+#The one-line memory trick
+#Abstract class = Define WHAT subclasses must do, while subclasses define HOW they do it.       
+
+#super(): a funtion used in a child class to call a method from its parent class(super()).allows you to extend the funtionality of the inherited methods.
+class shape:
+  def __init__(self,colour,filled):
+    self.colour = colour
+    self.filled = filled
+  def describe(self):
+    print(f"it is {self.colour} and {'filled' if self.filled else 'not filled'}")
+class circle(shape):
+  def __init__(self,colour,filled,radius):
+    super().__init__(colour,filled)
+    self.radius = radius 
+  def describe(self):
+    print(f"it is a circle with area of {3.14 * self.radius * self.radius}")
+class square(shape):
+  def __init__(self,colour,filled,side):
+    super().__init__(colour,filled)
+    self.side = side
+c1 = circle("red",True,5)
+s1 = square("blue",False,10)
+print(f"{c1.radius}cm")
+print(c1.colour)
+print(f"{s1.side}cm")
+print(s1.colour)
+c1.describe()
+s1.describe()
+print(c1.describe())
+
+# super() allows the child class to access the parent class without directly naming the parent.
+# Here, super().__init__() calls the parent constructor so the child can reuse its initialization.
+# Method overriding happens when a child class defines a method with the same name as the parent but with its own implementation.
+# When the overridden method is called, Python uses the child's version instead of the parent's version.
+# If the child does not override a method, it automatically inherits and uses the parent's version.
+
+
+#POLYMORPHISM:GREEK WORD "POLY" MEANS MANY AND "MORPH" MEANS FORMS(MANY FORMS).
+#two ways to achieve polymorphism in python: 1. inhertance: An object could be treated of the same type as a parent class. 
+#                                            2. duck typing : object must have necessary methods/attributes.
+#the ability of different classes to be treated as instances of the same class through a common interface.
+#In Python, polymorphism is often achieved through method overriding and duck typing.
+"""
+from abc import ABC, abstractmethod
+from turtle import circle
+class shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+class circle(shape):
+    def __init__(self,radius):   
+        self.radius = radius
+    def area(self):
+        return 3.14 * self.radius * self.radius 
+class rectangle(shape):
+    def __init__(self,length,width):
+        self.length = length
+        self.width = width
+    def area(self):
+        return self.length * self.width
+shapes = [circle(5), rectangle(4, 6)]
+for shape in shapes:
+    print(f"Area: {shape.area()}cm^2")  
+#duck typing: another way to achieve polymorphism besides inhertances
+#"if it looks like a duck and quacks like a duck, it must be a duck."
+class animal:
+    alive = True
+class dog(animal):
+    def sound(self):
+        print("bark")
+class cat(animal):
+    def sound(self):
+        print("meow")
+class car:
+    def sound(self):
+        print("vroom")   
+    alive = False         
+animals = [dog(), cat(), car()]   #"if it looks like a duck and quacks like a duck, it must be a duck."
+for animal in animals:
+    animal.sound()  #polymorphism achieved through duck typing
+    print(animal.alive)  #polymorphism achieved through duck typing    
+            
