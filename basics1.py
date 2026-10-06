@@ -187,6 +187,8 @@ print(c1.describe())
 """
 from abc import ABC, abstractmethod
 from turtle import circle
+
+from pyautogui import size
 class shape(ABC):
     @abstractmethod
     def area(self):
@@ -223,4 +225,71 @@ animals = [dog(), cat(), car()]   #"if it looks like a duck and quacks like a du
 for animal in animals:
     animal.sound()  #polymorphism achieved through duck typing
     print(animal.alive)  #polymorphism achieved through duck typing    
-            
+#aggregation : represents a relationship where one object (the whole) contains references to one or more INDEPENDENT objects (the parts).
+class library:
+    def __init__(self, name):
+        self.name = name
+        self.books = []  # Aggregation: Library has a list of Book objects
+    def add_book(self, book):
+        self.books.append(book)
+    def display_books(self):
+        for book in self.books:
+            print(f"Title: {book.title}, Author: {book.author}")
+class book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+book1 = book("The Great Gatsby", "F. Scott Fitzgerald")
+book2 = book("To Kill a Mockingbird", "Harper Lee")
+book3 = book("1984", "George Orwell")
+library = library("City Library")
+library.add_book(book1)
+library.add_book(book2)
+library.add_book(book3)
+library.display_books()                       
+#composition : represents a relationship where one object (the whole) contains references to one or more DEPENDENT objects (the parts). The lifetime of the dependent objects is tied to the lifetime of the whole object.
+class Engine:
+    def __init__(self, horsepower):
+        self.horsepower = horsepower
+
+
+class Wheel:
+    def __init__(self, size):
+        self.size = size
+
+
+class Car:
+    def __init__(self, brand, model, engine, wheels):
+        self.brand = brand
+        self.model = model
+        self.engine = engine      # Composition
+        self.wheels = wheels      # List of Wheel objects
+
+    def display_info(self):
+        print(f"Brand: {self.brand}")
+        print(f"Model: {self.model}")
+        print(f"Engine Horsepower: {self.engine.horsepower}")
+
+        for i, wheel in enumerate(self.wheels, start=1):
+            print(f"Wheel {i} Size: {wheel.size}")
+
+
+car1 = Car(
+    "Toyota",
+    "Camry",
+    Engine(200),
+    [Wheel(16), Wheel(16), Wheel(16), Wheel(16)]
+)
+
+car1.display_info()
+
+print()
+
+car2 = Car(
+    "Honda",
+    "Civic",
+    Engine(180),
+    [Wheel(15), Wheel(15), Wheel(15), Wheel(15)]
+)
+
+car2.display_info()
