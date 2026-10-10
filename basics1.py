@@ -185,7 +185,7 @@ print(c1.describe())
 #the ability of different classes to be treated as instances of the same class through a common interface.
 #In Python, polymorphism is often achieved through method overriding and duck typing.
 """
-from abc import ABC, abstractmethod
+"""from abc import ABC, abstractmethod
 from turtle import circle
 
 from pyautogui import size
@@ -206,10 +206,10 @@ class rectangle(shape):
         return self.length * self.width
 shapes = [circle(5), rectangle(4, 6)]
 for shape in shapes:
-    print(f"Area: {shape.area()}cm^2")  
+    print(f"Area: {shape.area()}cm^2")"""  
 #duck typing: another way to achieve polymorphism besides inhertances
 #"if it looks like a duck and quacks like a duck, it must be a duck."
-class animal:
+"""class animal:
     alive = True
 class dog(animal):
     def sound(self):
@@ -246,9 +246,9 @@ library = library("City Library")
 library.add_book(book1)
 library.add_book(book2)
 library.add_book(book3)
-library.display_books()                       
+library.display_books()"""                       
 #composition : represents a relationship where one object (the whole) contains references to one or more DEPENDENT objects (the parts). The lifetime of the dependent objects is tied to the lifetime of the whole object.
-class Engine:
+"""class Engine:
     def __init__(self, horsepower):
         self.horsepower = horsepower
 
@@ -293,3 +293,249 @@ car2 = Car(
 )
 
 car2.display_info()
+
+#NESTED CLASS : a class defined within another class.
+#                     class outer:
+#                         class inner:
+#benefits : allows you to logically group classes that are closely related,encapsulates private details, 
+#that aren't relavent outside of the outer class,keeps the namespace; reduce the possibility of naming conficts.
+"""
+"""class company:
+  class employee:
+    def __init__(self,name,position):
+      self.name = name
+      self.position = position 
+    def details(self):
+      return f"name is {self.name} and position is {self.position}"
+  def __init__(self,company_name):
+      self.company_name = company_name
+      self.employees = []
+  def add(self,name,position):
+      new_employee = self.employee(name,position)
+      self.employees.append(new_employee)
+      return new_employee
+  def list(self):
+      return [employee.details() for employee in self.employees]
+c1 = company("qwerty")
+
+e1 = c1.add("aj","ceo")
+e2 = c1.add("qwert","founder")
+
+print(e1.details())
+print(e2.details())
+print(c1.list())"""
+#company
+#│
+#├── company_name
+#│
+#├── employees
+#│      │
+#│      ├── employee
+#│      │    ├── name = aj
+#│      │    └── position = ceo
+#│      │
+#│      └── employee
+#│           ├── name = qwert
+#│           └── position = founder
+#│
+#├── add()
+#└── list()
+
+#static method : a metho that belongs to a class rather than any object of the class(instance).
+#usually used for general utility functions
+# instance method : best for operations on instance of the class(object).
+# static method :  best for utility functions that do not need to access to class data.
+#              METHOD
+#                 │
+#      ┌─────────┼─────────┐
+#     ↓         ↓         ↓
+#    Instance    Class     Static
+#       │         │         │
+#      self      cls       nothing
+#       │         │         │
+#    Object      Class     Utility
+#question : then what is the  use of using static method we can you normal things like for,if etc...
+#answer : The special thing about a static method is not what it can do.
+#It's where you put it and what it represents.
+#Static method = a normal function that is logically grouped inside a class because it belongs conceptually to that class, while not needing object/class data.
+"""class employee:
+    def __init__(self,name,position):
+        self.name = name
+        self.position = position
+    def details(self):
+        return f"name is {self.name} and position is {self.position}"
+
+    @staticmethod
+    def is_valid_position(position):
+        valid_positions = ["ceo", "manager", "developer", "designer"]
+        return position in valid_positions
+print(employee.is_valid_position("ceo"))  # True
+print(employee.is_valid_position("intern"))  # False
+
+employee1 = employee("Alice", "developer")
+print(employee1.details())  # name is Alice and position is developer
+employee2 = employee("Bob", "intern")
+print(employee2.details())  # name is Bob and position is intern
+"""
+#class method : allow operations related to the class itself.
+#take(cls) as the first parameter ,which represents the class itself.
+"""class student:
+  count = 0
+  total_gpa = 0
+  def __init__(self,name,gpa):
+    self.name = name
+    self.gpa = gpa
+    student.count += 1 
+    student.total_gpa += gpa
+   #instance method
+  def get_info(self):
+    return f"{self.name} {self.gpa}"
+  @classmethod
+  def get_count(cls):
+    return f"total no.of students : {cls.count}"
+  @classmethod
+  def gpa_average(cls):
+    return f"average gpa of students : {(cls.total_gpa)/(cls.count)}"
+    
+s1 = student("loki",2.4)   
+s2 = student("lok",3)  
+s3 = student("loi",5)  
+s4 = student("lki",2)  
+s5 = student("oki",4)  
+print(student.get_count())   
+print(student.gpa_average())"""
+#magic methods : dunder methods(double underscore methods) __init__, __str__, __eq__,
+#they are automatically called by many of python's built-in operations and functions.
+#they allow developers to define or customize the behavior of objects
+# Magic Methods / Dunder Methods
+# Dunder = Double Underscore
+# Example: __init__, __str__, __len__, __eq__, __add__, etc.
+
+
+class Student:
+
+    # __init__ is called automatically when an object is created
+    def __init__(self, name, age, marks):
+        self.name = name
+        self.age = age
+        self.marks = marks
+
+    # __str__ is called when we use print(object)
+    def __str__(self):
+        return f"Student: {self.name}, Age: {self.age}, Marks: {self.marks}"
+
+    # __len__ is called when we use len(object)
+    def __len__(self):
+        return len(self.marks)
+
+    # __eq__ is called when we compare two objects using ==
+    def __eq__(self, other):
+        return self.marks == other.marks
+
+    # __lt__ is called when we use <
+    def __lt__(self, other):
+        return self.marks < other.marks
+
+    # __add__ is called when we use + between two objects
+    def __add__(self, other):
+        return self.marks + other.marks
+
+    # __contains__ is called when we use "in"
+    def __contains__(self, item):
+        return item in self.name
+
+
+# Creating objects
+s1 = Student("Aj", 20, [85, 90, 95])
+s2 = Student("Rahul", 20, [80, 88, 92])
+
+
+# __str__
+# Python automatically calls s1.__str__()
+print(s1)
+
+# __len__
+# Python automatically calls s1.__len__()
+print(len(s1))
+
+# __eq__
+# Python automatically calls s1.__eq__(s2)
+print(s1 == s2)
+
+# __lt__
+# Python automatically calls s1.__lt__(s2)
+print(s1 < s2)
+
+# __add__
+# Python automatically calls s1.__add__(s2)
+print(s1 + s2)
+
+# __contains__
+# Python automatically calls s1.__contains__("Aj")
+print("Aj" in s1)
+#@property decorator : decorator used to define a method as a property (it can be accessed like an attribute).
+#benefit : add additional logic when read, write, or delete attribute.
+#gives you getter, setter and deleter method.
+# @property decorator
+# It allows us to access a method like an attribute.
+# We can use:
+# @property       -> GETTER
+# @variable.setter -> SETTER
+# @variable.deleter -> DELETER
+
+
+class Student:
+
+    def __init__(self, name, marks):
+        self.name = name
+        self._marks = marks
+
+    # GETTER
+    # Called when we access student.marks
+    @property
+    def marks(self):
+        return self._marks
+
+    # SETTER
+    # Called when we change student.marks
+    @marks.setter
+    def marks(self, value):
+
+        # Validate the marks
+        if 0 <= value <= 100:
+            self._marks = value
+        else:
+            print("Marks must be between 0 and 100")
+
+    # DELETER
+    # Called when we use del student.marks
+    @marks.deleter
+    def marks(self):
+        print("Marks have been deleted")
+        del self._marks
+
+
+# Create an object
+student = Student("Aj", 85)
+
+
+# GETTER
+print(student.marks)
+# Python calls: student.marks -> marks()
+
+
+# SETTER
+student.marks = 95
+# Python calls: marks(95)
+
+print(student.marks)
+
+
+# Invalid value
+student.marks = 150
+# Setter prevents invalid marks
+
+
+# DELETER
+del student.marks
+# Python calls the @marks.deleter method
