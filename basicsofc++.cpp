@@ -147,11 +147,14 @@ int main(){
   return 0;
 }*/
 //funtions
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 int doubling(int Num){
   Num = Num*2;
-  cout<<"double of the given number is "<<Num<<" \n";
+  return Num; 
+}
+float doubling(float Num){
+  Num = Num*2;
   return Num; 
 }
 int main(){
@@ -159,6 +162,11 @@ int main(){
   cout<<"before funtion : "<<x<<" \n";
   x = doubling(x);
   cout<<"after funtion : "<<x<<" \n";
+  float y = 26.9;
+  cout<<"before funtion : "<<y<<" \n";
+  y = doubling(y);
+  cout<<"after funtion : "<<y<<" \n";
   return 0;
-}
+}*/
+
 
