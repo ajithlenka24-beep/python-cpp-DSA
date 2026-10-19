@@ -69,7 +69,7 @@ int main(){
 }*/
 // the above mini project is just understanding..
 //loops
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 int main(){
     int num = 1;
@@ -84,5 +84,81 @@ int main(){
     }
     
     return 0;
+}*/
+/*
+#include<iostream>
+#include<cmath> // Used for mathematical functions like pow()
+using namespace std;
+int main(){
+  int num = 1;
+  int temp,num_power;
+  for(num=1;num<=9;num++){
+    num_power = 1;
+    for(temp=1;temp<=5;temp++){
+    //  cout<<num*temp<<" ";
+            // cout << num * temp << " ";
+            // Multiplies num by temp
+            // Example: 3 × 1, 3 × 2, 3 × 3...
+
+            // num_power = num * num_power;
+            // Calculates the power manually by repeatedly multiplying num
+            // Example for num = 3:
+            // 3^1 = 3
+            // 3^2 = 3 × 3 = 9
+            // 3^3 = 3 × 3 × 3 = 27
+    //num_power = num*num_power;
+    //cout<<num_power<<" ";
+    cout<<pow(num, temp)<<" ";   // pow(num, temp) calculates num raised to the power temp
+                                 // Example: pow(3, 2) = 9
+    }
+    cout<<"\n";
+  }
+  return 0;
+}*/
+//MINI PROJECT EXPENSE SPLITTER.
+/*#include<iostream>
+using namespace std;
+#include<cmath>
+int main(){
+  string names[5];
+  int expenses[5],totalexp{0};
+  float avgexp;
+  for(int i = 1;i<=5;i++){
+    cout<<"enter person "<<i<<" 's name : ";
+    cin>>names[i-1];
+    cout<<"how much "<<names[i-1]<<" spent : ";
+    cin>>expenses[i-1];
+    totalexp += expenses[i-1];
+  }
+  avgexp = totalexp / 5;
+  cout<<"total expenses : "<<totalexp<<" per person : "<<avgexp<<" \n";
+  for(int i=1;i<=5;i++){
+    float topay = avgexp - expenses[i-1];
+    cout<<names[i-1];
+    if(topay<0){
+      cout<<" to get "<< abs(topay);
+    }else if(topay>0){
+      cout <<" to pay do"<< topay;
+    }else{
+      cout<<"is all good \n";
+    cout<<"\n";  
+    }
+  }
+  return 0;
+}*/
+//funtions
+#include<iostream>
+using namespace std;
+int doubling(int Num){
+  Num = Num*2;
+  cout<<"double of the given number is "<<Num<<" \n";
+  return Num; 
+}
+int main(){
+  int x = 45;
+  cout<<"before funtion : "<<x<<" \n";
+  x = doubling(x);
+  cout<<"after funtion : "<<x<<" \n";
+  return 0;
 }
 
