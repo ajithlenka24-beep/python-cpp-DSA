@@ -169,4 +169,186 @@ int main(){
   return 0;
 }*/
 
+// ARRAY PRACTICE
+/*#include<iostream>
+using namespace std;
 
+int main(){
+
+    string names[5];
+    int marks[5];
+
+    for(int i=0; i<5; i++){
+        cout<<"enter student "<<i+1<<" name : ";
+        cin>>names[i];
+
+        cout<<"enter "<<names[i]<<" marks : ";
+        cin>>marks[i];
+    }
+
+    cout<<"\n--- STUDENT DETAILS ---\n";
+
+    for(int i=0; i<5; i++){
+        cout<<names[i]<<" : "<<marks[i]<<"\n";
+    }
+
+    return 0;
+}
+// practice arrays in C++
+*/
+// 2D ARRAY PRACTICE
+/*#include<iostream>
+using namespace std;
+
+int main(){
+
+    int matrix[3][3];
+
+    cout<<"Enter 9 numbers for the matrix:\n";
+
+    for(int i=0; i<3; i++){
+        for(int j=0; j<3; j++){
+            cin>>matrix[i][j];
+        }
+    }
+
+    cout<<"\n--- MATRIX ---\n";
+
+    for(int i=0; i<3; i++){
+        for(int j=0; j<3; j++){
+            cout<<matrix[i][j]<<" ";
+        }
+        cout<<"\n";
+    }
+
+    return 0;
+}
+// practice 2D arrays in C++
+*/
+// STRING CLASS PRACTICE
+/*#include<iostream>
+#include<string>
+using namespace std;
+
+int main(){
+
+    string name;
+
+    cout<<"Enter your full name : ";
+    getline(cin,name);
+
+    cout<<"Your name is : "<<name<<"\n";
+
+    cout<<"Length of your name : "<<name.length()<<"\n";
+
+    cout<<"First character : "<<name[0]<<"\n";
+
+    return 0;
+}
+// practice C++ string class
+*/
+// STRING METHODS PRACTICE
+/*#include<iostream>
+#include<string>
+using namespace std;
+
+int main(){
+
+    string name;
+
+    cout<<"Enter your name : ";
+    getline(cin,name);
+
+    cout<<"Name : "<<name<<"\n";
+
+    // length() gives the number of characters
+    cout<<"Length : "<<name.length()<<"\n";
+
+    // size() does the same thing as length()
+    cout<<"Size : "<<name.size()<<"\n";
+
+    // Accessing a character using index
+    cout<<"First character : "<<name[0]<<"\n";
+
+    // find() searches for a particular character/string
+    if(name.find("a") != string::npos){
+        cout<<"Your name contains 'a'\n";
+    }
+    else{
+        cout<<"Your name does not contain 'a'\n";
+    }
+
+    return 0;
+}
+//practice C++ string methods
+*/
+// POINTER REVISION IN C++
+/*#include<iostream>
+using namespace std;
+
+int main(){
+
+    int num = 50;
+
+    // Pointer stores the address of num
+    int *ptr = &num;
+
+    cout<<"Value of num : "<<num<<"\n";
+
+    // Address of num
+    cout<<"Address of num : "<<&num<<"\n";
+
+    // Pointer contains the address
+    cout<<"Value stored in pointer : "<<ptr<<"\n";
+
+    // *ptr gives the value stored at that address
+    cout<<"Value pointed by ptr : "<<*ptr<<"\n";
+
+    // Changing num through pointer
+    *ptr = 100;
+
+    cout<<"After changing through pointer : "<<num<<"\n";
+
+    return 0;
+}
+// revise pointers in C++
+*/
+// POINTER WITH ARRAY
+/*#include<iostream>
+using namespace std;
+
+int main(){
+
+    int numbers[5] = {10,20,30,40,50};
+
+    int *ptr = numbers;
+
+    for(int i=0; i<5; i++){
+        cout<<"Value : "<<*(ptr+i)<<"\n";
+    }
+
+    return 0;
+}
+
+*/
+// REFERENCES IN C++
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    int num = 50;
+
+    int &ref = num;
+
+    cout<<"num : "<<num<<"\n";
+    cout<<"ref : "<<ref<<"\n";
+
+    ref = 100;
+
+    cout<<"After changing ref : "<<num<<"\n";
+
+    return 0;
+}
+
+//learn references in C++
