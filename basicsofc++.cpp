@@ -332,7 +332,7 @@ int main(){
 
 */
 // REFERENCES IN C++
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 
 int main(){
@@ -349,6 +349,31 @@ int main(){
     cout<<"After changing ref : "<<num<<"\n";
 
     return 0;
+}*/
+//learn references in C++
+/*namespace:provides a solution for preventing name conflicts in a larger projects.
+each entity needs a unique name.
+A namespace allows for identically named entities as long as the namespaces are different.*/ 
+#include<iostream>
+using namespace std;
+namespace first{
+  int x = 1;
+}
+namespace second{
+  int x = 2;
+}
+int main(){
+    /*int x ;
+   x = 0;
+    cout<<x; 
+    cout<<first::x;
+    cout<<second::x;
+    return 0;       ----o/p--> 012 */
+   /* using namespace first;
+    cout<<x;*/     //---o/p--> 1
+  using namespace second;
+  cout<<x;
+  return 0;
 }
 
-//learn references in C++
+
