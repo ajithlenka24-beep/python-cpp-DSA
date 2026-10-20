@@ -378,7 +378,7 @@ A namespace allows for identically named entities as long as the namespaces are 
 //typedef: reseverd keyword used to create an additional name(alias) for another datatype.
 //new identitfier for an exisiting type help with readability and reduces typos.
 //for this we need to include header file #include<vector> instead of typedef many ppl use using
-#include<iostream>
+/*#include<iostream>
 #include<vector>
 using namespace std;
 //typedef vector<pair<string, int>> pairlist_t;
@@ -392,4 +392,18 @@ int main(){
   cout<<name<<"\n";
   cout<<age;
   return 0;
+}*/
+//random number generator.
+#include<iostream>
+#include<ctime>
+using namespace std;
+int main(){
+    srand(time(0));
+    int num1 = (rand() % 6) + 1;
+    int num2 = (rand() % 6) + 1;
+    int num3 = (rand() % 6) + 1;
+    cout<<num1<<"\n";
+    cout<<num2<<"\n";
+    cout<<num3<<"\n";
+    return 0;
 }
