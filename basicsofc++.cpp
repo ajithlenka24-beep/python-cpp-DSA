@@ -354,15 +354,15 @@ int main(){
 /*namespace:provides a solution for preventing name conflicts in a larger projects.
 each entity needs a unique name.
 A namespace allows for identically named entities as long as the namespaces are different.*/ 
-#include<iostream>
-using namespace std;
-namespace first{
-  int x = 1;
-}
-namespace second{
-  int x = 2;
-}
-int main(){
+//#include<iostream>
+//using namespace std;
+//namespace first{
+  //int x = 1;
+//}
+//namespace second{
+//  int x = 2;
+//}
+//int main(){
     /*int x ;
    x = 0;
     cout<<x; 
@@ -371,9 +371,25 @@ int main(){
     return 0;       ----o/p--> 012 */
    /* using namespace first;
     cout<<x;*/     //---o/p--> 1
-  using namespace second;
-  cout<<x;
+  //using namespace second;
+ // cout<<x;
+ // return 0;  //------o/p---->2
+//}
+//typedef: reseverd keyword used to create an additional name(alias) for another datatype.
+//new identitfier for an exisiting type help with readability and reduces typos.
+//for this we need to include header file #include<vector> instead of typedef many ppl use using
+#include<iostream>
+#include<vector>
+using namespace std;
+//typedef vector<pair<string, int>> pairlist_t;
+//typedef int number_t;
+//typedef string text_t;
+using text_t = string;
+using number_t = int;
+int main(){
+  text_t name = "ajith";
+  number_t age = 18;
+  cout<<name<<"\n";
+  cout<<age;
   return 0;
 }
-
-
