@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include <string>
 using namespace std;
 
@@ -431,4 +431,88 @@ int main()
     smartphone1.makeCall();
 
     return 0;
+}*/
+// NUMBER GUESSING GAME.
+/*#include<iostream>
+using namespace std;
+int main(){
+    int num;
+    int guess;
+    int tries=0;
+    srand(time(NULL));
+    num = rand()%100+1;
+    do{
+        cout<<"enter a number between (1-100):";
+        cin>>guess;
+        tries++;
+        if (guess>num){
+            cout<<"too high"<<endl;
+        }
+        else if (guess<num){
+            cout<<"too low"<<endl;
+        }
+        else{
+            cout<<"you guessed it in "<<tries<<" tries!"<<endl;
+        }
+    }while(guess!=num);
+    return 0;
+}*/
+//FUNCTION.
+/*#include<iostream>
+using namespace std;
+void happyBirthday(string name){
+    cout<<"Happy Birthday "<<name<<"!\n";
+}
+int main(){
+    string name;
+    cout<<"enter your name : ";
+    getline(cin, name);
+    happyBirthday(name);
+  return 0;
+}
+*/
+//RETURN TYPE OF FUNCTION.
+/*#include<iostream>
+using namespace std;
+double square(double num){
+    double area = num*num;
+    return area;
+}
+double cube(double num1){
+    double volume = num1*num1*num1;
+    return volume;
+}
+int main(){
+    double num;
+    double num1;
+    cout<<"enter the number : ";
+    cin>>num;
+    cout<<"enter the number fro volume: ";
+    cin>>num1;
+    double volume = cube(num1);
+    double area = square(num);
+    cout<<"the area of square is : "<<area<<"\n";
+    cout<<"the volume of the cube is : "<<volume<<"\n";
+    return 0;
+}*/
+#include<iostream>
+using namespace std;
+void bakepizza();
+void bakepizza(string topping1);
+void bakepizza(string topping1,string topping2);
+int main(){
+    bakepizza();
+    bakepizza("cheese");
+    bakepizza("cheese","mushroom");
+    return 0;
+}
+void bakepizza(){
+    cout<<"here is your pizza\n";
+
+}
+void bakepizza(string topping1){
+    cout<<"here is your pizza with "<<topping1<<"\n";
+}
+void bakepizza(string topping1,string topping2){
+    cout<<"here is your pizza with "<<topping1<<" and "<<topping2<<"\n";
 }
