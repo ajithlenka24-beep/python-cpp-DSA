@@ -495,7 +495,7 @@ int main(){
     cout<<"the volume of the cube is : "<<volume<<"\n";
     return 0;
 }*/
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 void bakepizza();
 void bakepizza(string topping1);
@@ -515,4 +515,136 @@ void bakepizza(string topping1){
 }
 void bakepizza(string topping1,string topping2){
     cout<<"here is your pizza with "<<topping1<<" and "<<topping2<<"\n";
+}*/
+/*#include<iostream>
+using namespace std;
+int main(){
+//array = a data structure that can hold multiple values,values thhat can be accessed by index.kind of same data type.
+    string car[] = {"BMW","TOYOTA","RANGE ROVER"};
+    car[2] = "RR";//--> UPDATING THE ARRAY.
+    cout<<car[1]<<'\n';
+    cout<<car[0]<<'\n';
+    cout<<car[2]<<'\n';
+   return 0;
+}*/
+/*
+#include<iostream>
+using namespace std;
+double getTotal(double prizes[], int size){
+    double total = 0;
+    for(int i = 0;i<size;i++){
+        total += prizes[i]; 
+    }
+    return total;
+}
+int main(){
+     double prizes[] = {49.99,52.9,54.7,99.99};
+      int size = sizeof(prizes)/sizeof(prizes[0]);
+      double total = getTotal(prizes, size);
+      cout <<"$"<<total;
+    return 0;  
+}  */ 
+/*#include<iostream>
+using namespace std;
+int searcharray(int array[], int size, int element){
+    for(int i = 0;i<size;i++){
+        if(array[i]==element){
+            return i;
+        }
+    }
+    return -1;
+}
+int main(){
+      int numbers[] = {1,2,3,4,5,6,7,8,9,10};
+      int size = sizeof(numbers)/sizeof(numbers[0]);
+      int index;
+      int mynum;
+      cout<<"Enter the number you want to search: "<<'\n';
+      cin>>mynum;
+      index = searcharray(numbers, size,mynum);
+      if(index != -1){
+        cout<<mynum<<" is at : "<<index;
+      }else{
+        cout<<mynum<<" is not avalible in the Array";
+      }
+    return 0;  
+}*/ 
+/*#include<iostream>
+using namespace std;
+void sort(int array[], int size){
+    int temp;
+    for(int i=0;i<size-1;i++){
+        for(int j = 0;j<size-i-1;j++){
+            if(array[j]>array[j+1]){
+                temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
+            }
+        }
+    }
+}
+int main(){
+    int array[] = {2,1,3,46,54,100,99,5,1000,109,999};
+    int size = sizeof(array)/sizeof(array[0]);
+    sort(array,size);
+    for(int element : array){
+        cout<<element<<" ";
+    }
+    return 0;
+}*/
+//FILL.
+/*#include<iostream>
+using namespace std;
+int main(){
+    const int SIZE = 100;
+    string foods[SIZE];
+    fill(foods,foods+(SIZE/2),"pizza");
+    fill(foods+(SIZE/2),foods+SIZE,"egg puff");
+        for(string food : foods){
+             cout<<food<<'\n';
+        }
+        return 0;
+    }
+*/
+/*#include<iostream>
+using namespace std;
+int main(){
+    string foods[5];    
+    int size = sizeof(foods)/sizeof(foods[0]);
+    for(int i = 0;i<size;i++){
+        cout<<"enter your fav food #"<<i+1<<":"<<'\n';
+        getline(cin, foods[i]);
+    }
+    cout<<"you like the following foods : ";
+    for (string food : foods){
+        cout<<food<<'\n';
+    }
+return 0;
+}*/
+/*#include<iostream>
+using namespace std;
+int main(){
+    int n = 3;
+
+    string foods[][n] = {{"potato egg","chicken fry","chicken biriyani"},
+                         {"potato fry","chicken roll","chicken pakoda"},
+                         {"french fries","kfc chicken","chicken winglets"}};
+    //cout<<foods[0][2]<<" ";
+    for(int i = 0;i<n;i++){
+        for(int j=0;j<n;j++){
+            cout<<foods[i][j]<<" ";
+        }
+    }
+    return 0;                        
+}*/
+#include<iostream>
+using namespace std;
+int main(){
+    string name = "Aj";
+    int age = 18;
+    bool hungry = true;
+    cout<<&name<<'\n';
+    cout<<&age<<'\n';
+    cout<<&hungry<<'\n';
+    return 0;
 }
